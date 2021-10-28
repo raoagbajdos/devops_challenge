@@ -32,5 +32,11 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
-        args: MyReleaseMessage
-
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+        draft: false
+        prerelease: false
